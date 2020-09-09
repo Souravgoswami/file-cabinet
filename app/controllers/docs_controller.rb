@@ -2,7 +2,7 @@ class DocsController < ApplicationController
 	before_action :find_doc, only: %i[ show edit update destroy ]
 
 	def index
-		@docs = Doc.all.order('created_at DESC')
+		@docs = current_user.docs.all.order('created_at DESC')
 	end
 
 	def show
